@@ -4,9 +4,16 @@
   "version": "${version}",
   "name": "SwitchHand",
   "description": "Switch main hand with hotkey",
-  "authors": [],
-  "contact": {},
-  "license": "All-Rights-Reserved",
+  "authors": [
+    "jjkay03"
+  ],
+  "contact": {
+    "homepage": "https://jjkay03.com/",
+    "issues": "https://github.com/jjkay03/SwitchHand/issues",
+    "sources": "https://github.com/jjkay03/SwitchHand",
+    "discord": "https://discord.gg/s7QYxWGHSK"
+  },
+  "license": "All Rights Reserved",
   "icon": "assets/switchhand/icon.png",
   "environment": "client",
   "entrypoints": {
