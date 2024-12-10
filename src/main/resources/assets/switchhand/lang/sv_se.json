@@ -1,0 +1,5 @@
+{
+  "category.switchhand": "SwitchHand",
+  "key.switchhand.mainhand": "Switch Main Hand",
+  "message.switchhand.toggle": "Toggled Main Hand to %s"
+}

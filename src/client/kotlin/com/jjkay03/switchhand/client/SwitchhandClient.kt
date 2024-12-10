@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.option.KeyBinding
 import net.minecraft.sound.SoundEvents
+import net.minecraft.text.Text
 import net.minecraft.util.Arm
 import org.lwjgl.glfw.GLFW
 
@@ -15,7 +16,13 @@ class SwitchhandClient : ClientModInitializer {
     private val delayMillis = 200L // Delay in milliseconds
 
     private val mainKeyBind = KeyBindingHelper.registerKeyBinding(
-        KeyBinding("Switch Main Hand", GLFW.GLFW_KEY_V, KeyBinding.INVENTORY_CATEGORY)
+        KeyBinding("key.switchhand.mainhand", GLFW.GLFW_KEY_V, "category.switchhand")
+    )
+    private val capeKeyBind = KeyBindingHelper.registerKeyBinding(
+        KeyBinding("key.switchhand.cape", GLFW.GLFW_KEY_UNKNOWN, "category.switchhand")
+    )
+    private val jacketKeyBind = KeyBindingHelper.registerKeyBinding(
+        KeyBinding("key.switchhand.jacket", GLFW.GLFW_KEY_UNKNOWN, "category.switchhand")
     )
 
     override fun onInitializeClient() {
@@ -35,10 +42,11 @@ class SwitchhandClient : ClientModInitializer {
             // Update the game options
             client.options.mainArm.value = newMainArm
             client.options.write()
+            client.player?.sendMessage(Text.translatable("message.switchhand.toggle"), false)
 
             // Play sound
             client.player?.playSound(SoundEvents.ITEM_ARMOR_EQUIP_GENERIC.value(), 0.5f, 1.0f)
         }
-
+        // TODO: Implement layer toggle functionality
     }
 }
